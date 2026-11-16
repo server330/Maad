@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maad Beauty | ماد بيوتي لمنتجات التجميل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #faf5f6;
+            color: #2b2b2b;
+            min-height: 100vh;
+        }
+
+        /* الهيدر وشريط التنقل */
+        header {
+            background: #ffffff;
+            border-bottom: 2px solid #f3e5e8;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(212, 163, 175, 0.08);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #b5838d;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #ffb5a7;
+        }
+
+        .cart-btn {
+            background: #ffb5a7;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 181, 167, 0.4);
+            transition: 0.2s;
+        }
+
+        .cart-btn:hover {
+            background: #f4978e;
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            background: linear-gradient(135deg, #fcefee 0%, #f8edeb 100%);
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid #f3e5e8;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            color: #6d5959;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .hero p {
+            color: #b5838d;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* شبكة المنتجات */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #6d5959;
+            margin-bottom: 25px;
+            border-right: 5px solid #ffb5a7;
+            padding-right: 12px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(212, 163, 175, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f7ede2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(212, 163, 175, 0.25);
+        }
+
+        .product-img {
+            height: 200px;
+            background: #f8edeb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ffb5a7;
+            color: white;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #4a4040;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.88rem;
+            color: #8c7a7a;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px 20px 20px;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #b5838d;
+        }
+
+        .buy-btn {
+            background: #6d5959;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .buy-btn:hover {
+            background: #b5838d;
+        }
+
+        /* الفوتر */
+        footer {
+            background: #4a4040;
+            color: #f8edeb;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 0.95rem;
+        }
+
+        footer span {
+            color: #ffb5a7;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- هيدر الموقع -->
+    <header>
+        <div class="logo">Maad <span>Beauty</span> ✨</div>
+        <button class="cart-btn" onclick="alert('سلة المشتريات فارغة حالياً 🛍️')">🛒 السلة (0)</button>
+    </header>
+
+    <!-- واجهة الترحيب -->
+    <section class="hero">
+        <h1>مرحباً بكِ في عالم الجمال والأناقة</h1>
+        <p>اكتشفي أحدث منتجات العناية والتجميل الأصلية الحصرية لدى ماد بيوتي</p>
+    </section>
+
+    <!-- قائمة المنتجات -->
+    <div class="container">
+        <h2 class="section-title">أبرز المنتجات المميزة</h2>
+        
+        <div class="products-grid">
+            
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    💄
+                    <span class="product-badge">الأكثر مبيعاً</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">أحمر شفاه مخملي مات</h3>
+                    <p class="product-desc">ثبات طويل الأمد، مرطب ومقاوم للماء، يمنح شفتيكِ مظهرًا ساحرًا.</p>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$24.99</span>
+                    <button class="buy-btn" onclick="addToCart('أحمر شفاه مخملي')">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    ✨
+                    <span class="product-badge">جديد</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">سيروم فيتامين سي النقي</h3>
+                    <p class="product-desc">لتصفية البشرة، إعطائها إشراقة طبيعية ومقاومة التجاعيد والخطوط الدقيقة.</p>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$38.50</span>
+                    <button class="buy-btn" onclick="addToCart('سيروم فيتامين سي')">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    🌸
+                    <span class="product-badge">عرض خاص</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">لوشن مرطب للجسم بالورد</h3>
+                    <p class="product-desc">ترطيب عميق يدوم 24 ساعة مع عطر فرنسي هادئ ومنعش طوال اليوم.</p>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$19.99</span>
+                    <button class="buy-btn" onclick="addToCart('لوشن مرطب للجسم')">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    💅
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">مجموعة طلاء الأظافر العصري</h3>
+                    <p class="product-desc">ألوان زاهية سريعة الجفاف تدوم طويلاً وتمنح أظافركِ لمسة احترافية.</p>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$15.00</span>
+                    <button class="buy-btn" onclick="addToCart('مجموعة طلاء الأظافر')">إضافة للسلة</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- فوتر الموقع -->
+    <footer>
+        جميع الحقوق محفوظة &copy; 2026 | متجر <span>Maad Beauty</span> للتجميل والعناية 🌸
+    </footer>
+
+    <script>
+        let cartCount = 0;
+        function addToCart(productName) {
+            cartCount++;
+            document.querySelector('.cart-btn').innerText = `🛒 السلة (${cartCount})`;
+            alert(`تمت إضافة "${productName}" إلى سلة المشتريات بنجاح! 💖`);
+        }
+    </script>
+</body>
+</html>
